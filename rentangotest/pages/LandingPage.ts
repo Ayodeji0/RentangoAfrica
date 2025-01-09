@@ -103,7 +103,9 @@ export class RentagoHomePage {
   }
 
   async getStatusMessage(): Promise<string> {
+    await this.page.waitForSelector(this.statusMessageSelector,);
     const message = await this.page.textContent(this.statusMessageSelector);
+    
     return message ?? '';
   }
 }
